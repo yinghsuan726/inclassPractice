@@ -1,0 +1,9 @@
+---
+title: "2018-10-03"
+output: html_notebook
+---
+
+
+```{r}
+> ?str_sub()
+410773116 <- read_csv("https://raw.githubusercontent.com/tpemartin/github-data/master/studentID.csv")
