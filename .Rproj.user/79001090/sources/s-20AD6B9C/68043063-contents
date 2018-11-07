@@ -96,12 +96,19 @@ mutate( # 將字串轉成數值
 collegeData%>%colnames
 ```
 ```{r}
+library(dplyr)
 collegeData %>% mutate_at(
   vars(一年級男生,一年級女生),
-  funs(parse_number(.,locale=cl))
+  funs(parse_number(.,locale=cl,na=c("","NA","-"))
 ) -> college1stYearDataA
 
-college1stYearDataA %>%
+```
+```{r}
+collegeData %>% mutate_at(
+  vars(starts_with("一年級")),
+  funs(parse_number(.,locale=cl,na=c("","NA","-"))
+) -> college1stYearDataB
+
+college1stYearDataB %>% 
   select(一年級男生,一年級女生)
 ```
-
