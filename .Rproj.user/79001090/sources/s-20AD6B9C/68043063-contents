@@ -42,13 +42,53 @@ library(dplyr)
 
 ```{r}
 collegeData %>%
-  mutate(
+  mutate(.,
   學校代碼=as.factor(學校代碼),
   學校名稱=as.factor(學校名稱)
   )-> collegeData2
-cData2$
 ```
 mutate()
 
+```
+```{r}
+collegeData$學校代碼<-as.factor(collegeData$學校代碼)
+collegeData$學校名稱<-as.factor(collegeData$學校名稱)
+collegeData -> collegeData2
+```
+```
+```{r}
+library(stringr)
+collegeData %>%
+  mutate( #將逗號拿掉
+   一年級男生=str_replace(一年級男生,",",""),
+   一年級女生=str_replace(一年級女生,",",""),
+   一年級男生=as.numeric(一年級男生),
+   一年級女生=as.numeric(一年級女生)
+ ) -> collegeData3
+```
+```{r}
+library(readr)
+cl<-locale(grouping_mark = ",") # 創造cl來描述千分位符號使用","的習慣場景
+collegeData %>% 
+  mutate(
+  `日間∕進修別`=as.factor(`日間∕進修別`),
+    等級別=as.factor(等級別),
+    一年級男生=parse_number(一年級男生,locale=cl),
+    一年級女生=parse_number(一年級女生,locale=cl)
+  ) -> collegeData4
+```
+
+```{r}
+library(stringr)
+ collegeData %>%
+ mutate( # 將所有逗號拿掉
+     一年級男生=str_replace(一年級男生,",",""),
+     一年級女生=str_replace(一年級女生,",","")
+   ) %>%
+
+mutate( # 將字串轉成數值
+     一年級男生=as.numeric(一年級男生),
+     一年級女生=as.numeric(一年級女生)
+   ) -> collegeData3
 ```
 
