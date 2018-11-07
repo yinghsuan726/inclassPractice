@@ -1,0 +1,9 @@
+"0","library(readr)"
+"0","bankdata <- read_csv(""https://raw.githubusercontent.com/tpemartin/github-data/master/bankdata.csv"")"
+"2","Parsed with column specification:
+cols(
+  銀行 = col_character(),
+  年月 = col_character(),
+  利率 = col_double()
+)
+"

@@ -1,0 +1,2 @@
+"0","#hwData$early <- deadline - hwData$Timestamp"
+"0","hwData$early <- difftime(deadline,hwData$Timestamp,units=""days"")"

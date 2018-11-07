@@ -1,0 +1,5 @@
+"0","library(readr)"
+"0","gsHW2ws <- read_csv(""https://raw.githubusercontent.com/tpemartin/github-data/master/gsHW2ws.csv"")"
+"2","Error in open.connection(con, ""rb"") : 
+  Could not resolve host: raw.githubusercontent.com
+"

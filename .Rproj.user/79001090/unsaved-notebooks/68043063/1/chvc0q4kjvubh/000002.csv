@@ -1,0 +1,13 @@
+"0","library(dplyr)"
+"2","Warning message:
+"
+"2","In strsplit(code, ""\n"", fixed = TRUE) :"
+"2","
+ "
+"2"," input string 1 is invalid in this locale
+"
+"0","mutate("
+"0","  collegeData,"
+"0","  學校代碼=as.factor(學校代碼),"
+"0","  學校名稱=as.factor(學校名稱)"
+"0","  ) -> collegeData2"

@@ -1,0 +1,27 @@
+"0","library(googlesheets)"
+"2","Warning messages:
+"
+"2","1: "
+"2","In scan(file = file, what = what, sep = sep, quote = quote, dec = dec,  :"
+"2","
+ "
+"2"," EOF within quoted string
+"
+"2","2: "
+"2","In scan(file = file, what = what, sep = sep, quote = quote, dec = dec,  :"
+"2","
+ "
+"2"," EOF within quoted string
+"
+"2","3: "
+"2","In strsplit(code, ""\n"", fixed = TRUE) :"
+"2","
+ "
+"2"," input string 1 is invalid in this locale
+"
+"0","#gs_auth(new_user = TRUE)"
+"0","gsLMSHabit<-gs_key(""1fWdfu5yvFKtl8bUfXp6bSWdgTCxHiXPAnSW-JSk-IWc"")  #download sheet information as an object"
+"2","Worksheets feed constructed with public visibility
+"
+"2","
+"

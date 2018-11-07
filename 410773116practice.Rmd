@@ -30,6 +30,7 @@ gsSurvey<-gs_key("1mC9bnxj11NCNoOCw0Vmn4nxERbHtLjeGo9v9C9b2GDE")  #download shee
 classSurvey<-gs_read(gsSurvey,ws=1) #access the 1st worksheet
 ```
 
+<<<<<<< HEAD
 ```{r}
 library(stringr)
 aa<-(str_sub(classSurvey$居住地行政區,1,3))
@@ -41,11 +42,21 @@ cc<-classSurvey[aa == "台北市",c("姓名")]
 class(cc)
 cc$姓名[3]
 ```
+=======
+>>>>>>> 0086f217ad6544a1a8bda0e1a147707a59dc563b
 
 ```{r}
 bb<-c("a","b","c")
 bb[2]
 ```
+library(readr)
+student <- read_csv("https://raw.githubusercontent.com/tpemartin/course-107-1-programming-for-data-science/master/data/student.csv")
+library(dplyr)
+library(magrittr)
+student %<>% mutate(
+  身高級距=cut(身高,c(0,150,155,160,165,170,175,180,185,200)))
+
+as.factor(student$出生地) -> student$出生地
 
 ```{r}
 StuDF <- data.frame(

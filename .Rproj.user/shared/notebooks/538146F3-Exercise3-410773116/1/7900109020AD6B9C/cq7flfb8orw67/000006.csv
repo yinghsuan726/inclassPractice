@@ -1,0 +1,44 @@
+"0","library(googlesheets)"
+"2","Warning message:
+"
+"2","In strsplit(code, ""\n"", fixed = TRUE) :"
+"2","
+ "
+"2"," input string 1 is invalid in this locale
+"
+"0","#gs_auth(new_user = TRUE)"
+"0","gsLMSHabit<-gs_key(""1fWdfu5yvFKtl8bUfXp6bSWdgTCxHiXPAnSW-JSk-IWc"")  #download sheet information as an object"
+"2","Worksheets feed constructed with public visibility
+"
+"0","classData<-gs_read(gsLMSHabit,ws=""å…¬å‘Šèˆ‡ç·´ç¿’"") #access the 1st worksheet"
+"2","Accessing worksheet titled '¤½§i»P½m²ß'.
+"
+"1","Downloading: "
+"1","1.6 kB"
+"1","     "
+"1","Downloading: "
+"1","1.6 kB"
+"1","     "
+"1","Downloading: "
+"1","1.6 kB"
+"1","     "
+"1","Downloading: "
+"1","1.6 kB"
+"1","     "
+"1","Downloading: "
+"1","1.6 kB"
+"1","     "
+"1","Downloading: "
+"1","1.6 kB"
+"1","     "
+"2","Missing column names filled in: 'X6' [6]"
+"2","Parsed with column specification:
+cols(
+  ¾Ç¸¹ = col_integer(),
+  `GitHub username` = col_character(),
+  `GitHub repo name` = col_character(),
+  `¤½-10-06` = col_integer(),
+  `½m2018-10-17-1` = col_integer(),
+  X6 = col_character()
+)
+"

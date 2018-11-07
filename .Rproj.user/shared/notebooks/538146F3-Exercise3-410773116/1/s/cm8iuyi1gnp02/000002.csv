@@ -1,0 +1,24 @@
+"0","gsLMSHabit<-gs_key(""1fWdfu5yvFKtl8bUfXp6bSWdgTCxHiXPAnSW-JSk-IWc"")  #download sheet information as an object"
+"2","Worksheets feed constructed with public visibility
+"
+"0","hwData<-gs_read(gsLMSHabit,ws=""ä½œæ¥­ä¸Šå‚³"") "
+"2","Accessing worksheet titled '§@·~¤W¶Ç'.
+"
+"1","Downloading: "
+"1","540 B"
+"1","     "
+"1","Downloading: "
+"1","540 B"
+"1","     "
+"1","Downloading: "
+"1","540 B"
+"1","     "
+"1","Downloading: "
+"1","540 B"
+"1","     "
+"2","Parsed with column specification:
+cols(
+  Timestamp = col_character(),
+  §@·~¥N½X = col_character()
+)
+"

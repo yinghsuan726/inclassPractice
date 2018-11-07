@@ -1,0 +1,54 @@
+---
+title: "2018-11-07"
+output: html_notebook
+---
+
+This is an [R Markdown](http://rmarkdown.rstudio.com) Notebook. When you execute code within the notebook, the results appear beneath the code. 
+
+Try executing this chunk by clicking the *Run* button within the chunk or by placing your cursor inside it and pressing *Ctrl+Shift+Enter*. 
+
+```{r}
+library(stringr)
+library(lubridate)
+民國年月<-c("099/01","099/02","099/03")
+
+# 1
+str_c("1",民國年月,"/01")->民國年月
+
+# 2
+lubridate::ymd(民國年月) -> 民國年月
+
+# 3
+民國年月 + years(911)
+
+
+```
+
+```{r}
+library(readr)
+collegeData <- read_csv("https://quality.data.gov.tw/dq_download_csv.php?nid=6231&md5_url=dda8fca407131483c1d8cbf3d61cf793")
+```
+```{r}
+library(dplyr)
+mutate(
+  collegeData,
+  學校代碼=as.factor(學校代碼),
+  學校名稱=as.factor(學校名稱)
+  ) -> collegeData2
+```
+```{r}
+library(dplyr)
+```
+
+```{r}
+collegeData %>%
+  mutate(
+  學校代碼=as.factor(學校代碼),
+  學校名稱=as.factor(學校名稱)
+  )-> collegeData2
+cData2$
+```
+mutate()
+
+```
+

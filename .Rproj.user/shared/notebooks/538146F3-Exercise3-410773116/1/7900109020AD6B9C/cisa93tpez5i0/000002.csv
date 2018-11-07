@@ -1,0 +1,9 @@
+"0","as.factor(classData$`公-10-06`) -> classData$`公-10-06`"
+"2","Warning message:
+"
+"2","In strsplit(code, ""\n"", fixed = TRUE) :"
+"2","
+ "
+"2"," input string 1 is invalid in this locale
+"
+"0","levels(classData$`公-10-06`) <- c(""沒看公告"",""有看公告"")"
