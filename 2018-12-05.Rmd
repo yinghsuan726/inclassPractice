@@ -1,0 +1,81 @@
+---
+title: "R Notebook"
+output: html_notebook
+---
+
+This is an [R Markdown](http://rmarkdown.rstudio.com) Notebook. When you execute code within the notebook, the results appear beneath the code. 
+
+Try executing this chunk by clicking the *Run* button within the chunk or by placing your cursor inside it and pressing *Ctrl+Shift+Enter*. 
+```{r}
+library(stringr); library(dplyr) ;library(readr); library(lubridate)
+```
+
+
+```{r}
+library(readr)
+libraryData <- read_csv("https://raw.githubusercontent.com/tpemartin/github-data/master/library100_102.csv")
+```
+
+```{r}
+libraryData%>%
+  mutate_at(
+    vars(學院,書籍館藏地,書籍類別),
+    funs(
+      as.factor(.
+              )
+      )
+    )->libraryData
+
+libraryData%>%
+  mutate(借閱時間=ymd_hms(借閱時間,tz="Asia/Taipei"))
+->libraryData
+
+
+```
+
+```{r}
+libraryData$學院%>%as.factor->libraryData$學院
+libraryData$書籍館藏地%>%as.factor->libraryData$書籍館藏地
+libraryData$借閱時間%>%as.factor->libraryData$借閱時間
+```
+```{r}
+## 1
+max(libraryData$讀者借閱冊數)-> maxNumber
+min(libraryData$讀者借閱冊數)-> minNumber
+paste0("最大值： ",maxNumber, " 最小值： ",minNumber)
+
+## 2
+max(libraryData$入學年)-> maxNumber
+min(libraryData$入學年)-> minNumber
+paste0("最大值： ",maxNumber, " 最小值： ",minNumber)
+
+## 3
+max(libraryData$書籍上架年月)-> maxNumber
+min(libraryData$書籍上架年月)-> minNumber
+paste0("最大值： ",maxNumber, " 最小值： ",minNumber)
+```
+```{r}
+minMaxFun <- function(x){
+  max(x)-> maxNumber
+  min(x)-> minNumber
+  paste0("最大值： ",maxNumber, " 最小值： ",minNumber)
+}
+
+```
+
+```{r}
+minMaxFun(libraryData$讀者借閱冊數)
+
+minMaxFun(libraryData$入學年)
+
+minMaxFun(libraryData$書籍上架年月)
+```
+
+```{r}
+
+```
+
+```{r}
+
+```
+
