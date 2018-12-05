@@ -72,7 +72,54 @@ minMaxFun(libraryData$書籍上架年月)
 ```
 
 ```{r}
+not_numeric(libraryData$學號)
+```
 
+
+```{r}
+findMyCollege<-function(x){
+(libraryData$學院==x)->logIndex
+libraryData[logIndex,]->subsample
+return(subsample)
+}
+
+```
+```{r}
+findMyCollege("人文學院")->sample1
+nrow(sample1)
+findMyCollege("社會科學院")->sample2
+nrow(sample2)
+```
+```{r}
+libraryData%>%
+  group_by(學院)%>%
+  summarise(
+    學院借閱冊數=length(學號)
+                           
+             )
+```
+
+```{r}
+libraryData %>%
+  select(讀者借閱冊數,書籍出版日期) %>%
+  summarise(
+    讀者平均借閱冊數=mean(讀者借閱冊數),
+    最小書籍出版日期=min(書籍出版日期,na.rm=T),
+    最大書籍出版日期=max(書籍出版日期,na.rm=T)
+  )
+```
+
+```{r}
+library(summarytools)
+libraryData %>%
+  select_if(
+    is.numeric
+  ) %>% summarytools::dfSummary() %>% summarytools::view(.)
+```
+
+```{r}
+(libraryData$書籍出版日期=="1199")%>%
+  which(.)%>%libraryData[.,]
 ```
 
 ```{r}
