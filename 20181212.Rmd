@@ -96,8 +96,22 @@ result
 ```
 ##每位學生借書量
 ```{r}
-libraryData$學號 %>% unique->student
-studentBorrow
+
+libraryData$學號 %>% as.factor %>% levels -> student
+#(=libraryData$學號 %>% unique -> student)
+#0
+studentBorrow <- vector("numeric", length(student))
+for(i in c(1:length(student))){
+# 1
+student_i <- student[i]
+# 2
+numericalIndex <- which(libraryData$學號 == student_i)
+studentSubsample_i <- libraryData[numericalIndex,]
+# 3
+studentBorrow_i <- nrow(studentSubsample_i)
+# 4
+studentBorrow[[i]] <- studentBorrow_i
+}
 
 ```
 
@@ -107,7 +121,7 @@ libraryData%>%
     學系=str_sub(學號,5,6)
   )->libraryData
 ```
-##7.2.3.2
+##7.2.3.2算出每個學院在每個入學年的借書量
 ```{r}
 libraryData %>%
   group_by(學院,入學年) %>%
@@ -115,6 +129,19 @@ libraryData %>%
     borrowCount=length(學號)
   ) -> result2
 result2
+```
+## 第一次進圖書館
+```{r}
+libraryData %>%
+  mutate(
+      借閱時間=ymd_hms(借閱時間,tz="Asia/Taipei")
+  ) %>%
+  group_by(學號) %>%
+  summarise(
+    第一次借書=min(借閱時間)
+  ) %>%
+  ungroup -> result3
+result3
 ```
 
 Add a new chunk by clicking the *Insert Chunk* button on the toolbar or by pressing *Ctrl+Alt+I*.
