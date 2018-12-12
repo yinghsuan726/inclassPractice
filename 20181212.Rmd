@@ -1,11 +1,14 @@
 ---
-title: "2018-12-12"
+title: "7.2"
 output: html_notebook
 ---
 
 This is an [R Markdown](http://rmarkdown.rstudio.com) Notebook. When you execute code within the notebook, the results appear beneath the code. 
 
 Try executing this chunk by clicking the *Run* button within the chunk or by placing your cursor inside it and pressing *Ctrl+Shift+Enter*. 
+```{r}
+library(dplyr);library(stringr);library(lubridate)
+```
 
 ```{r}
 library(readr)
@@ -64,6 +67,25 @@ for(i in c(1:18)){
 }
 allBorrowCount
 ```
+##不同學院借書量
+```{r}
+libraryData$學院 %>% as.factor %>% levels->college
+#0
+collegeBorrowCount<-vector("numeric",length(college))
+for(i in c(1:length(college))){
+  #1
+  college_i<-college[i]
+  #2
+  numericalIndexForSubsample<-which(libraryData$學院==college_i)
+  collegesubsample_i<-libraryData[numericalIndexForSubsample,]
+  #3
+  collegeBorrowCount_i<-nrow(collegesubsample_i)
+  #4
+  collegeBorrowCount[[i]]<-collegeBorrowCount_i
+}
+collegeBorrowCount
+```
+##7.2.3
 ```{r}
 libraryData %>%
   group_by(書籍館藏地) %>%
@@ -72,14 +94,27 @@ libraryData %>%
   ) -> result
 result
 ```
-
+##每位學生借書量
 ```{r}
-
+libraryData$學號 %>% unique->student
+studentBorrow
 
 ```
 
 ```{r}
-
+libraryData%>%
+  mutate(
+    學系=str_sub(學號,5,6)
+  )->libraryData
+```
+##7.2.3.2
+```{r}
+libraryData %>%
+  group_by(學院,入學年) %>%
+  summarise(
+    borrowCount=length(學號)
+  ) -> result2
+result2
 ```
 
 Add a new chunk by clicking the *Insert Chunk* button on the toolbar or by pressing *Ctrl+Alt+I*.
