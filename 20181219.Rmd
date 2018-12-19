@@ -1,5 +1,5 @@
 ---
-title: "2018-12-19"
+title: "R Notebook"
 output: html_notebook
 ---
 
@@ -9,46 +9,18 @@ Try executing this chunk by clicking the *Run* button within the chunk or by pla
 
 ```{r}
 library(readr)
-collegeData <- read_csv("https://raw.githubusercontent.com/tpemartin/github-data/master/103_student.csv")
-```
-
-```{r}
-library(dplyr)
-mutate(
-  collegeData,
-  學校代碼=as.factor(學校代碼),
-  學校名稱=as.factor(學校名稱)
-  ) -> collegeData2
-collegeData2
-```
-```{r}
-libraryData$書籍館藏地 %>% as.factor %>% levels -> storageLocations
-storageLocations
-```
-
-```{r}
-library(readr)
 libraryData <- read_csv("https://raw.githubusercontent.com/tpemartin/github-data/master/library100_102.csv")
 ```
-
 ```{r}
-libraryData$書籍館藏地 %>% as.factor %>% levels -> storageLocations
-storageLocations
+class(plasticContainer)[c("greenBox")]
 ```
 
 ```{r}
-i<-1
-# 1
-storageLocation_i <- storageLocations[i] 
-# 2
-numericalIndexForSubsample<-which(libraryData$書籍館藏地==storageLocation_i)
-subsample_i <- libraryData[numericalIndexForSubsample,]
-# 3
-borrowCount_i <- nrow(subsample_i)
-```
-
-```{r}
-
+plasticContainer<-list(
+  greenbox=c("paper","scissor"),
+  redBox=c(1L,3L,2.5),
+  blueBox=c(TRUE,FALSE,TRUE,TRUE)
+)
 ```
 
 Add a new chunk by clicking the *Insert Chunk* button on the toolbar or by pressing *Ctrl+Alt+I*.
